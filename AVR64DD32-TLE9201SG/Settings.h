@@ -21,6 +21,7 @@ void CLOCK_XOSCHF_crystal_init();
 void CLOCK_XOSCHF_clock_init();
 void CLOCK_INHF_clock_init();
 void PLL_init();
+uint32_t CLOCK_read();
 void TCD0_init();
 void TCD0_ON();
 void TCD0_OFF();

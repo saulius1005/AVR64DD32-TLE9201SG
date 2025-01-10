@@ -107,3 +107,53 @@ void PLL_init() {
     /* Wait for PLL configuration to complete */
     while (CLKCTRL.MCLKSTATUS & CLKCTRL_PLLS_bm) {};
 }
+
+
+uint32_t CLOCK_read(){
+    uint32_t base_freq = 4000000; ///< Default F_CPU. Adjust if using EXCLK or PLL clock source is EXCLK as well.
+
+    // Determine the base clock frequency based on OSCHFCTRLA settings
+    switch (CLKCTRL.OSCHFCTRLA & CLKCTRL_FRQSEL_gm) {
+	    case CLKCTRL_FRQSEL_1M_gc: base_freq = 1000000; break;
+	    case CLKCTRL_FRQSEL_2M_gc: base_freq = 2000000; break;
+	    case CLKCTRL_FRQSEL_3M_gc: base_freq = 3000000; break;
+	    case CLKCTRL_FRQSEL_8M_gc: base_freq = 8000000; break;
+	    case CLKCTRL_FRQSEL_12M_gc: base_freq = 12000000; break;
+	    case CLKCTRL_FRQSEL_16M_gc: base_freq = 16000000; break;
+	    case CLKCTRL_FRQSEL_20M_gc: base_freq = 20000000; break;
+	    case CLKCTRL_FRQSEL_24M_gc: base_freq = 24000000; break;
+    }
+
+    // Adjust base frequency for peripheral clock prescaler
+    if ((TCD0.CTRLA & TCD_CLKSEL_gm) == TCD_CLKSEL_CLKPER_gc) {
+	    if (CLKCTRL.MCLKCTRLB & CLKCTRL_PEN_bm) {
+		    switch (CLKCTRL.MCLKCTRLB & CLKCTRL_PDIV_gm) {
+			    case CLKCTRL_PDIV_2X_gc:  base_freq /= 2; break;
+			    case CLKCTRL_PDIV_4X_gc:  base_freq /= 4; break;
+			    case CLKCTRL_PDIV_6X_gc:  base_freq /= 6; break;
+			    case CLKCTRL_PDIV_8X_gc:  base_freq /= 8; break;
+			    case CLKCTRL_PDIV_10X_gc: base_freq /= 10; break;
+			    case CLKCTRL_PDIV_12X_gc: base_freq /= 12; break;
+			    case CLKCTRL_PDIV_16X_gc: base_freq /= 16; break;
+			    case CLKCTRL_PDIV_24X_gc: base_freq /= 24; break;
+			    case CLKCTRL_PDIV_32X_gc: base_freq /= 32; break;
+			    case CLKCTRL_PDIV_48X_gc: base_freq /= 48; break;
+			    case CLKCTRL_PDIV_64X_gc: base_freq /= 64; break;
+		    }
+	    }
+    }
+
+    // Adjust base frequency for PLL
+    if ((TCD0.CTRLA & TCD_CLKSEL_gm) == TCD_CLKSEL_PLL_gc) {
+	    if ((CLKCTRL.PLLCTRLA & CLKCTRL_PLLCTRLA) == CLKCTRL_MULFAC_2x_gc) {
+		    base_freq *= 2;
+		    } else if ((CLKCTRL.PLLCTRLA & CLKCTRL_PLLCTRLA) == CLKCTRL_MULFAC_3x_gc) {
+		    base_freq *= 3;
+	    }
+
+	    if (base_freq > 48000000) {
+		    base_freq = 48000000; ///< Cap at 48 MHz (maximum PLL frequency)
+	    }
+    }
+	return base_freq;
+};

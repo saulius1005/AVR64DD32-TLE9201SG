@@ -11,6 +11,7 @@
 
 #define TLE9201SG_MODE_SPI 1
 #define TLE9201SG_MODE_PWMDIR 0
+#define TLE9201SG_SPI_TIME_COMPENSATION 0.5
 #define RD_DIA 0b00000000 // Read Diagnosis Register
 #define RES_DIA 0b10000000 // Reset Diagnosis Register
 #define RD_REV 0b00100000 // Read Device Revision Number
@@ -38,6 +39,8 @@ typedef struct { //creating structure for data storage for each row
 	uint8_t mode;
 	uint16_t pwm_freq;
 	float duty_cycle;
+	uint16_t on; //pwm on time using _delay_loop2()
+	uint16_t off; //pwm off time
 
 } TLE9201SG_DATA;
 

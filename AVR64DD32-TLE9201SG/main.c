@@ -11,9 +11,9 @@ int main(void)
 {
 	GPIO_init();
     CLOCK_INHF_clock_init(); ///< Initialize the internal high-frequency clock
-	TLE9201SG.pwm_freq = 20000; //20kHz //allways before mode init
+	TLE9201SG.pwm_freq = 10000; //20kHz //allways before mode init
 	TLE9201SG.duty_cycle = 10.0; //10% duty cycle //allways before mode init
-	TLE9201SG_Mode_init(TLE9201SG_MODE_SPI);
+	TLE9201SG_Mode_init(TLE9201SG_MODE_PWMDIR);
 	TLE9201SG_OFF(); // disable all outputs
 
     while (1) {

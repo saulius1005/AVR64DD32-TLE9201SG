@@ -31,19 +31,9 @@ void TCD0_OFF() {
     TCD0.CTRLA &= ~TCD_ENABLE_bm; ///< Disable the TCD0 counter
 }
 
-/**
- * @brief Initializes PWM settings for TCD0.
- * 
- * @param target_freq The desired PWM frequency in Hz.
- * @param duty_cycle The desired duty cycle in percentage (0.1% to 99.9%).
- * 
- * @details Automatically calculates the required TCD0 settings based on the system clock,
- *          prescaler, and target frequency. The function adjusts the timer's compare registers
- *          to produce the specified frequency and duty cycle.
- * 
- * @note Ensure the system clock and PLL settings are correctly configured for the desired base frequency.
- */
+
 void PWM_init(uint32_t target_freq, float duty_cycle) {
+/*
     uint32_t base_freq = 4000000; ///< Default F_CPU. Adjust if using EXCLK or PLL clock source is EXCLK as well.
 
     // Determine the base clock frequency based on OSCHFCTRLA settings
@@ -88,7 +78,7 @@ void PWM_init(uint32_t target_freq, float duty_cycle) {
         if (base_freq > 48000000) {
             base_freq = 48000000; ///< Cap at 48 MHz (maximum PLL frequency)
         }
-    }
+    }*/
 
     // Calculate TCD prescaler
     uint8_t TCD_prescaler = 1;
@@ -98,7 +88,7 @@ void PWM_init(uint32_t target_freq, float duty_cycle) {
     }
 
     // Calculate compare registers
-    uint16_t cmpbclr = (base_freq / (TCD_prescaler * target_freq * 2)) - 1;
+    uint16_t cmpbclr = (CLOCK_read() / (TCD_prescaler * target_freq * 2)) - 1;
     uint16_t cmpaset = (uint16_t)(cmpbclr * (duty_cycle / 100.0f)) + 1;
     uint16_t cmpbset = cmpbclr - cmpaset - 1;
 
@@ -122,6 +112,6 @@ void TCD0_init() {
     TCD0.CTRLB = TCD_WGMODE_DS_gc; ///< Set waveform mode to double slope
 
     while (!(TCD0.STATUS & TCD_ENRDY_bm)); ///< Wait until TCD is ready for configuration
-    TCD0.CTRLA = TCD_CLKSEL_PLL_gc | ///< Select PLL as clock source
+    TCD0.CTRLA = TCD_CLKSEL_OSCHF_gc | ///< Select PLL as clock source
                  TCD_CNTPRES_DIV1_gc; ///< Select prescaler
 }

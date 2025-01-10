@@ -108,6 +108,15 @@ void TLE9201SG_Mode_init(uint8_t mode){ //This function allows selection of cont
 		TLE9201SG.OLDIS = 0;
 		TLE9201SG.SEN = 0; //disable outputs
 		TLE9201SG_Write(WR_CTRL);
+		double sig_period = 0.0;
+		double sig_calc = 0.0;
+		double sig_on = 0.0;
+		sig_calc = 1.0 / CLOCK_read() * 4; //calculating time base according current main clock value
+		sig_period = 1.0 / TLE9201SG.pwm_freq; //calculating period time for requared frequency
+		sig_on = TLE9201SG.duty_cycle/100 * sig_period; //calculating pwm duty cycle
+		TLE9201SG.off = ((sig_period - sig_on)/ sig_calc); //calculating pwm off time
+		TLE9201SG.on =  (sig_on /sig_calc); //calculating pwm on time
+
 	}
 	else{ //PWM DIR
 		PLL_init(); ///< Initialize the Phase-Locked Loop (PLL)
@@ -145,33 +154,19 @@ void TLE9201SG_DIR(uint8_t direction){
 	}
 }
 
-uint16_t calculate_delay_loop2_value(double delay_us) {
-	double cycles_needed = (delay_us * 1000.0) / (1000.0 / F_CPU);
-	double loop_count = cycles_needed / 4.0;
-
-	if (loop_count > 65535.0) {
-		return 0;
-	}
-	return (uint16_t)(loop_count + 0.5); // Suapvaliname iki artimiausio sveiko skaièiaus
-}
-
 void TLE9201SG_START(){
 	if(TLE9201SG.mode){ //Mode SPI
-
-	double sig_period = (double)1 / (TLE9201SG.pwm_freq/10000), //100% or full period
-		   sig_on = (double)TLE9201SG.duty_cycle * sig_period,
-		   sig_off = sig_period*100 - sig_on;
 
 		TLE9201SG.SPWM = 1;
 		TLE9201SG_Write(WR_CTRL_RD_DIA);
 		//_delay_loop_2(calculate_delay_loop2_value(sig_on)); //50us = 20khz //_delay can be changed with other timer exmpl.: TCA or TCB or RTC or even TCD
-		//_delay_loop_2(6*sig_on);
-		_delay_loop_2(30);
+		_delay_loop_2(TLE9201SG.on);
+		//_delay_loop_2(25);
 		TLE9201SG.SPWM = 0;
 		TLE9201SG_Write(WR_CTRL_RD_DIA);
 		//_delay_loop_2(calculate_delay_loop2_value(sig_off));	
-		//_delay_loop_2(6*sig_off);
-		_delay_loop_2(270);
+		_delay_loop_2(TLE9201SG.off);
+		//_delay_loop_2(475);
 	}
 	else{
 		TCD0_ON();
