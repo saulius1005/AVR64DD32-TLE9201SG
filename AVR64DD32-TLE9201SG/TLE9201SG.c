@@ -98,6 +98,10 @@ void TLE9201SG_Write(uint8_t command){
 		counter++;			
 	}
 }
+		double sig_period = 0.0;
+		double sig_calc = 0.0;
+		double sig_on = 0.0;
+
 
 void TLE9201SG_Mode_init(uint8_t mode){ //This function allows selection of controll type 0- DIR/PWM or 1- SPI
 	TLE9201SG.mode = mode;
@@ -108,14 +112,12 @@ void TLE9201SG_Mode_init(uint8_t mode){ //This function allows selection of cont
 		TLE9201SG.OLDIS = 0;
 		TLE9201SG.SEN = 0; //disable outputs
 		TLE9201SG_Write(WR_CTRL);
-		double sig_period = 0.0;
-		double sig_calc = 0.0;
-		double sig_on = 0.0;
+
 		sig_calc = 1.0 / CLOCK_read() * 4; //calculating time base according current main clock value
-		sig_period = 1.0 / TLE9201SG.pwm_freq; //calculating period time for requared frequency
+		sig_period = (1.0 / TLE9201SG.pwm_freq) - TLE9201SG_SPI_TIME_COMPENSATION; //calculating period time for requared frequency
 		sig_on = TLE9201SG.duty_cycle/100 * sig_period; //calculating pwm duty cycle
 		TLE9201SG.off = ((sig_period - sig_on)/ sig_calc); //calculating pwm off time
-		TLE9201SG.on =  (sig_on /sig_calc); //calculating pwm on time
+		TLE9201SG.on =  (sig_on/sig_calc); //calculating pwm on time
 
 	}
 	else{ //PWM DIR
@@ -150,7 +152,7 @@ void TLE9201SG_DIR(uint8_t direction){
 		TLE9201SG.SDIR = direction;
 	}
 	else{
-		PORTD.OUT |= (direction << PIN5_bp);
+		PORTD.OUT = (direction << PIN5_bp);
 	}
 }
 

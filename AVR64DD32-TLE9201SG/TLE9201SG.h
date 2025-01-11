@@ -11,7 +11,7 @@
 
 #define TLE9201SG_MODE_SPI 1
 #define TLE9201SG_MODE_PWMDIR 0
-#define TLE9201SG_SPI_TIME_COMPENSATION 0.5
+#define TLE9201SG_SPI_TIME_COMPENSATION 0.0000155 //time for SPI sends and receice data in Seconds (~16uS)
 #define RD_DIA 0b00000000 // Read Diagnosis Register
 #define RES_DIA 0b10000000 // Reset Diagnosis Register
 #define RD_REV 0b00100000 // Read Device Revision Number

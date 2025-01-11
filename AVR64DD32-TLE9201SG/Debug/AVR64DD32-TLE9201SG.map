@@ -71,18 +71,6 @@ Discarded input sections
  .text          0x00000000        0x0 SPI.o
  .data          0x00000000        0x0 SPI.o
  .bss           0x00000000        0x0 SPI.o
- .text.SPI0_Read
-                0x00000000       0x14 SPI.o
- .text.SPI0_Write
-                0x00000000       0x1c SPI.o
- .text.SPI0_Buffer_Read
-                0x00000000       0x56 SPI.o
- .text.SPI_0_exchange_byte
-                0x00000000       0x1a SPI.o
- .text.SPI_0_write_block
-                0x00000000       0x1c SPI.o
- .text.SPI_0_read_block
-                0x00000000       0x1e SPI.o
  .text          0x00000000        0x0 TCD.o
  .data          0x00000000        0x0 TCD.o
  .bss           0x00000000        0x0 TCD.o
@@ -411,7 +399,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xd38
+.text           0x00000000      0xd6c
  *(.vectors)
  .vectors       0x00000000       0x90 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2/crtavr64dd32.o
                 0x00000000                __vector_default
@@ -552,104 +540,104 @@ END GROUP
                 0x00000590       0x9c TLE9201SG.o
                 0x00000590                TLE9201SG_Write
  .text.TLE9201SG_Mode_init
-                0x0000062c      0x118 TLE9201SG.o
+                0x0000062c      0x154 TLE9201SG.o
                 0x0000062c                TLE9201SG_Mode_init
  .text.TLE9201SG_ON
-                0x00000744       0x18 TLE9201SG.o
-                0x00000744                TLE9201SG_ON
+                0x00000780       0x18 TLE9201SG.o
+                0x00000780                TLE9201SG_ON
  .text.TLE9201SG_OFF
-                0x0000075c       0x1e TLE9201SG.o
-                0x0000075c                TLE9201SG_OFF
+                0x00000798       0x1e TLE9201SG.o
+                0x00000798                TLE9201SG_OFF
  .text.TLE9201SG_DIR
-                0x0000077a       0x22 TLE9201SG.o
-                0x0000077a                TLE9201SG_DIR
+                0x000007b6       0x1a TLE9201SG.o
+                0x000007b6                TLE9201SG_DIR
  .text.TLE9201SG_START
-                0x0000079c       0x3e TLE9201SG.o
-                0x0000079c                TLE9201SG_START
+                0x000007d0       0x3e TLE9201SG.o
+                0x000007d0                TLE9201SG_START
  .text.TLE9201SG_STOP
-                0x000007da       0x14 TLE9201SG.o
-                0x000007da                TLE9201SG_STOP
+                0x0000080e       0x14 TLE9201SG.o
+                0x0000080e                TLE9201SG_STOP
  .text.avr-libc.fplib
-                0x000007ee        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(addsf3.o)
-                0x000007ee                __subsf3
-                0x000007f0                __addsf3
+                0x00000822        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(addsf3.o)
+                0x00000822                __subsf3
+                0x00000824                __addsf3
  .text.avr-libc.fplib
-                0x000007fc       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(addsf3x.o)
-                0x0000081e                __addsf3x
+                0x00000830       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(addsf3x.o)
+                0x00000852                __addsf3x
  .text.avr-libc.fplib
-                0x000008c8        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(divsf3.o)
-                0x000008c8                __divsf3
+                0x000008fc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(divsf3.o)
+                0x000008fc                __divsf3
  .text.avr-libc.fplib
-                0x000008d0       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(divsf3x.o)
-                0x000008f0                __divsf3x
-                0x000008f6                __divsf3_pse
+                0x00000904       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(divsf3x.o)
+                0x00000924                __divsf3x
+                0x0000092a                __divsf3_pse
  .text.avr-libc.fplib
-                0x000009ac       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fixunssfsi.o)
-                0x000009ac                __fixunssfsi
+                0x000009e0       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fixunssfsi.o)
+                0x000009e0                __fixunssfsi
  .text.avr-libc.fplib
-                0x00000a0a       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(floatsisf.o)
-                0x00000a0a                __floatunsisf
-                0x00000a0e                __floatsisf
+                0x00000a3e       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(floatsisf.o)
+                0x00000a3e                __floatunsisf
+                0x00000a42                __floatsisf
  .text.avr-libc.fplib
-                0x00000a84        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_inf.o)
-                0x00000a84                __fp_inf
+                0x00000ab8        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_inf.o)
+                0x00000ab8                __fp_inf
  .text.avr-libc.fplib
-                0x00000a90        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_nan.o)
-                0x00000a90                __fp_nan
+                0x00000ac4        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_nan.o)
+                0x00000ac4                __fp_nan
  .text.avr-libc.fplib
-                0x00000a96        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_pscA.o)
-                0x00000a96                __fp_pscA
+                0x00000aca        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_pscA.o)
+                0x00000aca                __fp_pscA
  .text.avr-libc.fplib
-                0x00000aa4        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_pscB.o)
-                0x00000aa4                __fp_pscB
+                0x00000ad8        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_pscB.o)
+                0x00000ad8                __fp_pscB
  .text.avr-libc.fplib
-                0x00000ab2       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_round.o)
-                0x00000ab2                __fp_round
+                0x00000ae6       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_round.o)
+                0x00000ae6                __fp_round
  .text.avr-libc.fplib
-                0x00000ad4       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_split3.o)
-                0x00000ad4                __fp_split3
-                0x00000ae4                __fp_splitA
+                0x00000b08       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_split3.o)
+                0x00000b08                __fp_split3
+                0x00000b18                __fp_splitA
  .text.avr-libc.fplib
-                0x00000b18        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_zero.o)
-                0x00000b18                __fp_zero
-                0x00000b1a                __fp_szero
+                0x00000b4c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(fp_zero.o)
+                0x00000b4c                __fp_zero
+                0x00000b4e                __fp_szero
  .text.avr-libc.fplib
-                0x00000b26        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(mulsf3.o)
-                0x00000b26                __mulsf3
+                0x00000b5a        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(mulsf3.o)
+                0x00000b5a                __mulsf3
  .text.avr-libc.fplib
-                0x00000b2e       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(mulsf3x.o)
-                0x00000b4c                __mulsf3x
-                0x00000b52                __mulsf3_pse
+                0x00000b62       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avrxmega2\libm.a(mulsf3x.o)
+                0x00000b80                __mulsf3x
+                0x00000b86                __mulsf3_pse
  .text.libgcc.div
-                0x00000c00       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_udivmodsi4.o)
-                0x00000c00                __udivmodsi4
- .text.libgcc   0x00000c44        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_tablejump2.o)
-                0x00000c44                __tablejump2__
+                0x00000c34       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_udivmodsi4.o)
+                0x00000c34                __udivmodsi4
+ .text.libgcc   0x00000c78        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_tablejump2.o)
+                0x00000c78                __tablejump2__
  .text.libgcc.mul
-                0x00000c50       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_muluhisi3.o)
-                0x00000c50                __muluhisi3
+                0x00000c84       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_muluhisi3.o)
+                0x00000c84                __muluhisi3
  .text.libgcc.mul
-                0x00000c66       0x56 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_umulsidi3.o)
-                0x00000c66                __umulsidi3
-                0x00000c68                __umulsidi3_helper
+                0x00000c9a       0x56 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_umulsidi3.o)
+                0x00000c9a                __umulsidi3
+                0x00000c9c                __umulsidi3_helper
  .text.libgcc.builtins
-                0x00000cbc       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_ashrdi3.o)
-                0x00000cbc                __ashrdi3
-                0x00000cc0                __lshrdi3
+                0x00000cf0       0x3c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_ashrdi3.o)
+                0x00000cf0                __ashrdi3
+                0x00000cf4                __lshrdi3
  .text.libgcc.mul
-                0x00000cf8       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_umulhisi3.o)
-                0x00000cf8                __umulhisi3
+                0x00000d2c       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_umulhisi3.o)
+                0x00000d2c                __umulhisi3
  .text.libgcc.mul
-                0x00000d16       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_muldi3_6.o)
-                0x00000d16                __muldi3_6
+                0x00000d4a       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_muldi3_6.o)
+                0x00000d4a                __muldi3_6
  .text.avr-libc
-                0x00000d28        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
-                0x00000d28                ccp_write_io
-                0x00000d34                . = ALIGN (0x2)
+                0x00000d5c        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
+                0x00000d5c                ccp_write_io
+                0x00000d68                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000d34        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_exit.o)
-                0x00000d34                _exit
-                0x00000d34                exit
+ .fini9         0x00000d68        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_exit.o)
+                0x00000d68                _exit
+                0x00000d68                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -668,11 +656,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000d34        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_exit.o)
+ .fini0         0x00000d68        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avrxmega2\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000d38                _etext = .
+                0x00000d6c                _etext = .
 
-.data           0x00806000        0x0 load address 0x00000d38
+.data           0x00806000        0x0 load address 0x00000d6c
                 [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -684,25 +672,32 @@ END GROUP
                 0x00806000                _edata = .
                 [!provide]                PROVIDE (__data_end, .)
 
-.bss            0x00806000       0x1c
+.bss            0x00806000       0x28
                 0x00806000                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.counter.3747
                 0x00806000        0x1 TLE9201SG.o
+ .bss.sig_on    0x00806001        0x4 TLE9201SG.o
+                0x00806001                sig_on
+ .bss.sig_calc  0x00806005        0x4 TLE9201SG.o
+                0x00806005                sig_calc
+ .bss.sig_period
+                0x00806009        0x4 TLE9201SG.o
+                0x00806009                sig_period
  .bss.TLE9201SG
-                0x00806001       0x1b TLE9201SG.o
-                0x00806001                TLE9201SG
+                0x0080600d       0x1b TLE9201SG.o
+                0x0080600d                TLE9201SG
  *(COMMON)
-                0x0080601c                PROVIDE (__bss_end, .)
-                0x00000d38                __data_load_start = LOADADDR (.data)
-                0x00000d38                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00806028                PROVIDE (__bss_end, .)
+                0x00000d6c                __data_load_start = LOADADDR (.data)
+                0x00000d6c                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080601c        0x0
+.noinit         0x00806028        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080601c                _end = .
+                0x00806028                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -772,7 +767,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x1b0
+.debug_aranges  0x00000000      0x180
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x40 CLK.o
@@ -781,60 +776,60 @@ END GROUP
  .debug_aranges
                 0x00000060       0x20 main.o
  .debug_aranges
-                0x00000080       0x60 SPI.o
+                0x00000080       0x30 SPI.o
  .debug_aranges
-                0x000000e0       0x38 TCD.o
+                0x000000b0       0x38 TCD.o
  .debug_aranges
-                0x00000118       0x78 TLE9201SG.o
+                0x000000e8       0x78 TLE9201SG.o
  .debug_aranges
-                0x00000190       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
+                0x00000160       0x20 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x47a9
+.debug_info     0x00000000     0x4613
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000     0x22a4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2/crtavr64dd32.o
  .debug_info    0x000022a4      0x937 CLK.o
  .debug_info    0x00002bdb      0x25a GPIO.o
  .debug_info    0x00002e35      0x492 main.o
- .debug_info    0x000032c7      0x4f2 SPI.o
- .debug_info    0x000037b9      0x70f TCD.o
- .debug_info    0x00003ec8      0x838 TLE9201SG.o
- .debug_info    0x00004700       0xa9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
+ .debug_info    0x000032c7      0x361 SPI.o
+ .debug_info    0x00003628      0x70f TCD.o
+ .debug_info    0x00003d37      0x833 TLE9201SG.o
+ .debug_info    0x0000456a       0xa9 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
 
-.debug_abbrev   0x00000000     0x2932
+.debug_abbrev   0x00000000     0x285c
  *(.debug_abbrev)
  .debug_abbrev  0x00000000     0x20ce C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2/crtavr64dd32.o
  .debug_abbrev  0x000020ce      0x145 CLK.o
  .debug_abbrev  0x00002213       0xa2 GPIO.o
  .debug_abbrev  0x000022b5      0x11d main.o
- .debug_abbrev  0x000023d2      0x178 SPI.o
- .debug_abbrev  0x0000254a      0x177 TCD.o
- .debug_abbrev  0x000026c1      0x25d TLE9201SG.o
- .debug_abbrev  0x0000291e       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
+ .debug_abbrev  0x000023d2       0xbc SPI.o
+ .debug_abbrev  0x0000248e      0x177 TCD.o
+ .debug_abbrev  0x00002605      0x243 TLE9201SG.o
+ .debug_abbrev  0x00002848       0x14 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
 
-.debug_line     0x00000000     0x1109
+.debug_line     0x00000000      0xf79
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x16f C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2/crtavr64dd32.o
  .debug_line    0x0000016f      0x2e8 CLK.o
  .debug_line    0x00000457      0x121 GPIO.o
  .debug_line    0x00000578      0x170 main.o
- .debug_line    0x000006e8      0x2c5 SPI.o
- .debug_line    0x000009ad      0x228 TCD.o
- .debug_line    0x00000bd5      0x4cd TLE9201SG.o
- .debug_line    0x000010a2       0x67 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
+ .debug_line    0x000006e8      0x134 SPI.o
+ .debug_line    0x0000081c      0x228 TCD.o
+ .debug_line    0x00000a44      0x4ce TLE9201SG.o
+ .debug_line    0x00000f12       0x67 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2\libavr64dd32.a(ccp_write.o)
 
-.debug_frame    0x00000000      0x36c
+.debug_frame    0x00000000      0x30c
  *(.debug_frame)
  .debug_frame   0x00000000       0x98 CLK.o
  .debug_frame   0x00000098       0x24 GPIO.o
  .debug_frame   0x000000bc       0x24 main.o
- .debug_frame   0x000000e0       0xa4 SPI.o
- .debug_frame   0x00000184       0x9c TCD.o
- .debug_frame   0x00000220      0x14c TLE9201SG.o
+ .debug_frame   0x000000e0       0x44 SPI.o
+ .debug_frame   0x00000124       0x9c TCD.o
+ .debug_frame   0x000001c0      0x14c TLE9201SG.o
 
-.debug_str      0x00000000     0x1cd3
+.debug_str      0x00000000     0x1c61
  *(.debug_str)
  .debug_str     0x00000000      0xefb C:/Program Files (x86)/Atmel/Studio/7.0/Packs/Atmel/AVR-Dx_DFP/2.6.303/gcc/dev/avr64dd32/avrxmega2/crtavr64dd32.o
  .debug_str     0x00000efb      0x7f7 CLK.o
@@ -843,19 +838,18 @@ END GROUP
                                 0x282 (size before relaxing)
  .debug_str     0x000017c1       0xd0 main.o
                                 0x365 (size before relaxing)
- .debug_str     0x00001891      0x14e SPI.o
-                                0x3e2 (size before relaxing)
- .debug_str     0x000019df      0x1fe TCD.o
+ .debug_str     0x00001891       0xdc SPI.o
+                                0x361 (size before relaxing)
+ .debug_str     0x0000196d      0x1fe TCD.o
                                 0x5d6 (size before relaxing)
- .debug_str     0x00001bdd       0xf6 TLE9201SG.o
+ .debug_str     0x00001b6b       0xf6 TLE9201SG.o
                                 0x4ab (size before relaxing)
 
-.debug_loc      0x00000000      0x8fa
+.debug_loc      0x00000000      0x6d8
  *(.debug_loc)
  .debug_loc     0x00000000      0x20b CLK.o
- .debug_loc     0x0000020b      0x198 SPI.o
- .debug_loc     0x000003a3      0x1a1 TCD.o
- .debug_loc     0x00000544      0x3b6 TLE9201SG.o
+ .debug_loc     0x0000020b      0x1a1 TCD.o
+ .debug_loc     0x000003ac      0x32c TLE9201SG.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -875,14 +869,14 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x130
+.debug_ranges   0x00000000      0x100
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x30 CLK.o
  .debug_ranges  0x00000030       0x10 GPIO.o
  .debug_ranges  0x00000040       0x10 main.o
- .debug_ranges  0x00000050       0x50 SPI.o
- .debug_ranges  0x000000a0       0x28 TCD.o
- .debug_ranges  0x000000c8       0x68 TLE9201SG.o
+ .debug_ranges  0x00000050       0x20 SPI.o
+ .debug_ranges  0x00000070       0x28 TCD.o
+ .debug_ranges  0x00000098       0x68 TLE9201SG.o
 
 .debug_macro
  *(.debug_macro)
