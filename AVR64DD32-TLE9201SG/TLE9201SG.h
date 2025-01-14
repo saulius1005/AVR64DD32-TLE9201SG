@@ -1,49 +1,74 @@
-/*
- * TLE9201SG.h
+/**
+ * @file TLE9201SG.h
+ * @brief Header file for TLE9201SG driver configuration and control.
  *
- * Created: 2025-01-10 15:57:42
- *  Author: Saulius
- */ 
-
+ * @details This file contains definitions, macros, and data structures 
+ *          used for controlling the TLE9201SG motor driver. It supports 
+ *          SPI and PWM-DIR control modes, along with diagnostic and control register operations.
+ * 
+ * @author Saulius
+ * @date 2025-01-10
+ */
 
 #ifndef TLE9201SG_H_
 #define TLE9201SG_H_
 
+/** @brief TLE9201SG mode: SPI control */
 #define TLE9201SG_MODE_SPI 1
+
+/** @brief TLE9201SG mode: PWM-DIR control */
 #define TLE9201SG_MODE_PWMDIR 0
-#define TLE9201SG_SPI_TIME_COMPENSATION 0.0000155 //time for SPI sends and receice data in Seconds (~16uS)
-#define RD_DIA 0b00000000 // Read Diagnosis Register
-#define RES_DIA 0b10000000 // Reset Diagnosis Register
-#define RD_REV 0b00100000 // Read Device Revision Number
-#define RD_CTRL 0b01100000 // Read Control Register
-#define WR_CTRL 0b11100000 // Write Control - sets and returns Control Register values
-#define WR_CTRL_RD_DIA 0b11000000 // Write Control and Read Diagnosis- sets Control Register values and returns Diagnosis Register values
 
-typedef struct { //creating structure for data storage for each row
-	uint8_t revision; //index for moving average
-	uint8_t diag;
-	uint8_t control;
-	uint8_t EN;
-	uint8_t OT;
-	uint8_t TV;
-	uint8_t CL;
-	uint8_t DIA;
-	uint8_t Fault;
-	uint8_t CMD;
-	uint8_t OLDIS;
-	uint8_t SIN;
-	uint8_t SEN;
-	uint8_t SDIR;
-	uint8_t SPWM;
-	uint8_t back;
-	uint8_t mode;
-	uint16_t pwm_freq;
-	float duty_cycle;
-	uint16_t on; //pwm on time using _delay_loop2()
-	uint16_t off; //pwm off time
+/** @brief SPI time compensation for sending and receiving data (16 µs). */
+#define TLE9201SG_SPI_TIME_COMPENSATION 0.0000155 
 
+/** @brief Command to read the Diagnosis Register. */
+#define RD_DIA 0b00000000
+
+/** @brief Command to reset the Diagnosis Register. */
+#define RES_DIA 0b10000000
+
+/** @brief Command to read the Device Revision Number. */
+#define RD_REV 0b00100000
+
+/** @brief Command to read the Control Register. */
+#define RD_CTRL 0b01100000
+
+/** @brief Command to write and return Control Register values. */
+#define WR_CTRL 0b11100000
+
+/** @brief Command to write Control values and read Diagnosis Register values. */
+#define WR_CTRL_RD_DIA 0b11000000
+
+/**
+ * @struct TLE9201SG_DATA
+ * @brief Structure for storing TLE9201SG configuration and status.
+ */
+typedef struct {
+    uint8_t revision;    ///< Device revision number.
+    uint8_t diag;        ///< Diagnosis register value.
+    uint8_t control;     ///< Control register value.
+    uint8_t EN;          ///< Enable status.
+    uint8_t OT;          ///< Over-temperature status.
+    uint8_t TV;          ///< Thermal warning status.
+    uint8_t CL;          ///< Current limit status.
+    uint8_t DIA;         ///< Diagnosis error status.
+    uint8_t Fault;       ///< Fault status.
+    uint8_t CMD;         ///< Last command sent to the device.
+    uint8_t OLDIS;       ///< Output disable status.
+    uint8_t SIN;         ///< SPI control.
+    uint8_t SEN;         ///< SPI on and off.
+    uint8_t SDIR;        ///< Direction status.
+    uint8_t SPWM;        ///< PWM status.
+    uint8_t back;        ///< Backup register.
+    uint8_t mode;        ///< Current operating mode (SPI or PWM-DIR).
+    uint16_t pwm_freq;   ///< PWM frequency in Hz.
+    float duty_cycle;    ///< Duty cycle percentage (0-100%).
+    uint16_t on;         ///< PWM on time using `_delay_loop2()`.
+    uint16_t off;        ///< PWM off time using `_delay_loop2()`.
 } TLE9201SG_DATA;
 
+/** @brief Global variable for storing TLE9201SG data and configuration. */
 extern TLE9201SG_DATA TLE9201SG;
 
 #endif /* TLE9201SG_H_ */
