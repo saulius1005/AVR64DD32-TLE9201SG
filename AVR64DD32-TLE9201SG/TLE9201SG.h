@@ -20,7 +20,7 @@
 #define TLE9201SG_MODE_PWMDIR 0
 
 /** @brief SPI time compensation for sending and receiving data (16 µs). */
-#define TLE9201SG_SPI_TIME_COMPENSATION 0.0000155 
+#define TLE9201SG_SPI_TIME_COMPENSATION 0.000014 
 
 /** @brief Command to read the Diagnosis Register. */
 #define RD_DIA 0b00000000

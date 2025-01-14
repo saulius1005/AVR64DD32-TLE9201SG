@@ -23,7 +23,6 @@ void SPI0_init() {
     SPI0.CTRLA = SPI_MASTER_bm          // Configure as Master
                | SPI_PRESC_DIV4_gc      // Clock speed = F_CPU / 4 = 24 MHz / 4 = 6 MHz
                | SPI_ENABLE_bm;         // Enable SPI
-
     SPI0.CTRLB = SPI_MODE_1_gc;         // Set SPI mode 1 for TLE9201SG
 }
 
@@ -47,4 +46,12 @@ void SPI0_Start() {
  */
 void SPI0_Stop() {
     PORTA.OUTSET = PIN7_bm; // Set SS (PA7) high
+}
+
+uint8_t SPI0_Exchange_Data(uint8_t data_storage) {
+	SPI0_Start(); //pull ss low
+    SPI0.DATA = data_storage;
+    while (!(SPI0.INTFLAGS & SPI_IF_bm)){};   /* waits until data is exchanged*/
+	SPI0_Stop(); // pull ss high    
+    return SPI0.DATA;
 }

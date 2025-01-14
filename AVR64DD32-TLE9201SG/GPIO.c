@@ -24,7 +24,6 @@ void GPIO_init() {
     /* Configure SPI pins on PORTA */
     PORTA.DIRSET = PIN4_bm | PIN6_bm | PIN7_bm; // Set MOSI (PA4), SCK (PA6), SS (PA7) as outputs
     PORTA.DIRCLR = PIN5_bm;                     // Set MISO (PA5) as input
-    SPI0_Stop();                                // Ensure SPI0 module is stopped
 
     /* Configure motor control pins on PORTD */
     PORTD.DIRSET = PIN4_bm | PIN5_bm | PIN6_bm; // Set PWM (PD4), DIR (PD5), DIS (PD6) as outputs

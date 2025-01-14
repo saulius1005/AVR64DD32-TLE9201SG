@@ -62,6 +62,8 @@ void SPI0_Start();
 /** @brief Stops the SPI0 communication. */
 void SPI0_Stop();
 
+uint8_t SPI0_Exchange_Data(uint8_t data_storage);
+
 /**
  * @brief Reads data from the TLE9201SG.
  * @param command Command byte to send.
@@ -77,25 +79,13 @@ void TLE9201SG_Revision();
 void TLE9201SG_Sort_Diagnosis();
 
 /** @brief Performs control-related actions for the TLE9201SG. */
-void TLE9201SG_Sort_Control_();
-
-/**
- * @brief Writes a command to the TLE9201SG.
- * @param command Command byte to send.
- */
-void TLE9201SG_Write(uint8_t command);
+void TLE9201SG_Sort_Control();
 
 /**
  * @brief Initializes the TLE9201SG with the specified mode.
  * @param mode Mode to initialize (e.g., SPI mode).
  */
 void TLE9201SG_Mode_init(uint8_t mode);
-
-/** @brief Turns on the TLE9201SG. */
-void TLE9201SG_ON();
-
-/** @brief Turns off the TLE9201SG. */
-void TLE9201SG_OFF();
 
 /**
  * @brief Sets the direction of the TLE9201SG.
