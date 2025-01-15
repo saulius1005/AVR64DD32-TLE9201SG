@@ -13,6 +13,36 @@
 #ifndef TLE9201SG_H_
 #define TLE9201SG_H_
 
+/**
+ * @brief Extracts the value of a specific bit from a given variable.
+ *
+ * This macro shifts the specified bit of the input value to the least significant bit (LSB)
+ * position and masks it to extract its value (0 or 1).
+ *
+ * @param value The variable from which to extract the bit.
+ * @param bit The bit position to extract (0 for LSB, increasing towards MSB).
+ * @return The value of the specified bit (0 or 1).
+ *
+ * @note Used in functions like TLE9201SG_Sort_Diagnosis() and TLE9201SG_Sort_Control() 
+ *       to extract individual data bits for processing.
+ */
+#define GET_BIT(value, bit) (((value) >> (bit)) & 0x01)
+
+/**
+ * @brief Extracts a group of bits from a given variable using a mask.
+ *
+ * This macro applies a bitwise AND operation between the input value and the mask to extract 
+ * the bits of interest, leaving all other bits cleared.
+ *
+ * @param value The variable from which to extract the bits.
+ * @param mask A mask specifying which bits to extract (1 for bits of interest, 0 otherwise).
+ * @return The value of the bits of interest, with all other bits cleared.
+ *
+ * @note Used in functions like TLE9201SG_Sort_Diagnosis() to extract groups of data bits.
+ */
+#define GET_BITS(value, mask) ((value) & (mask))
+
+
 /** @brief TLE9201SG mode: SPI control */
 #define TLE9201SG_MODE_SPI 1
 

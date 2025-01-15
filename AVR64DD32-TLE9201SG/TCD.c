@@ -32,6 +32,32 @@ void TCD0_OFF() {
 }
 
 
+/**
+ * @brief Initializes the PWM (Pulse Width Modulation) settings for the TLE9201SG driver.
+ *
+ * This function configures the Timer/Counter D (TCD) module to generate a PWM signal
+ * with the specified frequency and duty cycle. It calculates the compare register values
+ * based on the system clock and TCD prescaler settings.
+ *
+ * @param target_freq The target frequency of the PWM signal in Hz.
+ * @param duty_cycle The duty cycle of the PWM signal as a percentage (0.0 to 100.0).
+ *
+ * @note The TCD prescaler is determined from the TCD0.CTRLA register. The function
+ *       supports prescaler values of 4 and 32.
+ *
+ * @note Ensure the CLOCK_read() function provides the correct system clock frequency
+ *       for accurate calculations.
+ *
+ * @details
+ * - `cmpbclr`: Determines the total period of the PWM signal based on the target frequency.
+ * - `cmpaset`: Sets the high duration of the PWM signal based on the duty cycle.
+ * - `cmpbset`: Defines the remaining time in the period (low duration).
+ *
+ * @warning Incorrect target frequency or duty cycle values may result in undefined behavior.
+ *
+ * @example
+ * PWM_init(1000, 50.0f); // Initialize PWM with 1 kHz frequency and 50% duty cycle.
+ */
 void PWM_init(uint32_t target_freq, float duty_cycle) {
     // Calculate TCD prescaler
     uint8_t TCD_prescaler = 1;
@@ -48,8 +74,8 @@ void PWM_init(uint32_t target_freq, float duty_cycle) {
     TCD0.CMPBCLR = cmpbclr;
     TCD0.CMPBSET = cmpbset;
     TCD0.CMPASET = cmpaset;
-
 }
+
 
 /**
  * @brief Initializes TCD0 for PWM generation.

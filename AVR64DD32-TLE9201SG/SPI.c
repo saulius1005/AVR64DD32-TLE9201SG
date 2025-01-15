@@ -48,10 +48,21 @@ void SPI0_Stop() {
     PORTA.OUTSET = PIN7_bm; // Set SS (PA7) high
 }
 
+/**
+ * @brief Exchanges a byte of data via SPI0.
+ *
+ * This function transmits a single byte of data to an SPI slave device and 
+ * simultaneously receives a byte of data from the slave device.
+ * It ensures the SPI communication is correctly initiated and terminated by 
+ * managing the slave select (SS) line.
+ *
+ * @param data_storage The byte of data to send to the SPI slave.
+ * @return The byte of data received from the SPI slave.
+ */
 uint8_t SPI0_Exchange_Data(uint8_t data_storage) {
-	SPI0_Start(); //pull ss low
-    SPI0.DATA = data_storage;
-    while (!(SPI0.INTFLAGS & SPI_IF_bm)){};   /* waits until data is exchanged*/
-	SPI0_Stop(); // pull ss high    
-    return SPI0.DATA;
+    SPI0_Start(); // Pull SS low to initiate communication
+    SPI0.DATA = data_storage; // Send the data
+    while (!(SPI0.INTFLAGS & SPI_IF_bm)) {} // Wait until data is exchanged
+    SPI0_Stop(); // Pull SS high to terminate communication
+    return SPI0.DATA; // Return the received data
 }
