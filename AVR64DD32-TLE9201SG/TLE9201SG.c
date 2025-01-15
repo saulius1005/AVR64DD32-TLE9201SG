@@ -142,11 +142,12 @@ void TLE9201SG_STOP() {
  * by controlling the hardware pin directly, depending on the current control mode.
  */
 void TLE9201SG_DIR(uint8_t direction) {
-    if (TLE9201SG.mode) { // SPI mode
-        TLE9201SG.SDIR = direction;
-    } else { // PWM/DIR mode
-        PORTD.OUT = (direction << PIN5_bp); // Set the direction pin
-    }
+	if (TLE9201SG.mode) { // SPI mode
+		TLE9201SG.SDIR = direction;
+		} else { // PWM/DIR mode
+		// Update only the direction bit (PIN5_bp)
+		PORTD.OUT = (PORTD.OUT & ~(1 << PIN5_bp)) | (direction << PIN5_bp);
+	}
 }
 
 /**

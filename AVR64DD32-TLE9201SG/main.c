@@ -25,7 +25,7 @@ int main(void)
     TLE9201SG.pwm_freq = 20000; ///< Sets PWM frequency to 20 kHz. Always set this before mode initialization.
     TLE9201SG.duty_cycle = 30.0; ///< Sets duty cycle to 50%. Always set this before mode initialization.
 
-    TLE9201SG_Mode_init(TLE9201SG_MODE_SPI); ///< Initializes the TLE9201SG in SPI mode.
+    TLE9201SG_Mode_init(TLE9201SG_MODE_PWMDIR); ///< Initializes the TLE9201SG in SPI mode.
 
     while (1) {
         if (!(PORTF.IN & PIN5_bm)) { ///< Starts TLE9201SG if PF5 is low.
